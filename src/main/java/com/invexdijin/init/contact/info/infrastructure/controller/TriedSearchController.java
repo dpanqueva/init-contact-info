@@ -1,6 +1,7 @@
 package com.invexdijin.init.contact.info.infrastructure.controller;
 
 import com.invexdijin.init.contact.info.application.ICaseUseInitSearchPeopleService;
+import com.invexdijin.init.contact.info.application.InitSearchFacade;
 import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 public class TriedSearchController {
 
     @Autowired
-    private ICaseUseInitSearchPeopleService searchPeople;
+    private InitSearchFacade initSearchFacade;
 
     @PostMapping("/init-search-people")
     public ResponseEntity<Map<String, Object>> triedSearch(@Valid @RequestBody TriedSearchDto triedSearch
@@ -30,7 +31,7 @@ public class TriedSearchController {
             response.put("error", errors);
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
-        response.put("message", searchPeople.searchStart(triedSearch));
+        response.put("message", initSearchFacade.initIntentionSearchPeople(triedSearch));
         return ResponseEntity.ok(response);
 
     }

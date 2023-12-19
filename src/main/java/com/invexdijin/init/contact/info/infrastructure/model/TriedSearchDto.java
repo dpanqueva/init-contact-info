@@ -38,4 +38,10 @@ public class TriedSearchDto {
     @NotBlank(message = "search-type-bad-request")
     @NotEmpty(message = "search-type-bad-request")
     private String searchType;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String fullName;
 }
