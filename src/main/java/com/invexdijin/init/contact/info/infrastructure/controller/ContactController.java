@@ -1,6 +1,6 @@
 package com.invexdijin.init.contact.info.infrastructure.controller;
 
-import com.invexdijin.init.contact.info.application.ICaseUseContactMeService;
+import com.invexdijin.init.contact.info.application.ContactFacade;
 import com.invexdijin.init.contact.info.infrastructure.model.ContactDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class ContactController {
 
     @Autowired
-    private ICaseUseContactMeService contactMeService;
+    private ContactFacade contactMeFacade;
 
     @PostMapping("/contact-me")
     public ResponseEntity<Map<String, Object>> saveContactMe(@Valid @RequestBody ContactDto contact
@@ -36,7 +36,7 @@ public class ContactController {
             response.put("error", errors);
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
-        contactMeService.saveContactMe(contact);
+        contactMeFacade.facadeContactMe(contact);
         response.put("message", "Thank you for writing to us, an advisor will contact you.");
         response.put("code", "sweet-alert-registered-contact");
 

@@ -1,7 +1,7 @@
 package com.invexdijin.init.contact.info.domain.service;
 
 import com.invexdijin.init.contact.info.application.ICaseUseInitSearchPeopleService;
-import com.invexdijin.init.contact.info.domain.client.TxInitSearchStartClient;
+import com.invexdijin.init.contact.info.domain.adapter.TxInitSearchStartClient;
 import com.invexdijin.init.contact.info.domain.model.ResponseTx;
 import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;

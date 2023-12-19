@@ -1,7 +1,7 @@
 package com.invexdijin.init.contact.info.domain.service;
 
 import com.invexdijin.init.contact.info.application.ICaseUseConfirmSearchPeopleService;
-import com.invexdijin.init.contact.info.domain.client.ConfirmSearchPeopleClient;
+import com.invexdijin.init.contact.info.domain.adapter.ConfirmSearchPeopleClient;
 import com.invexdijin.init.contact.info.infrastructure.exceptions.WithPaymentReferenceException;
 import com.invexdijin.init.contact.info.infrastructure.model.InitSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;

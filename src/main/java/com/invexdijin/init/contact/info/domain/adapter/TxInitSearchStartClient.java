@@ -1,8 +1,6 @@
-package com.invexdijin.init.contact.info.domain.client;
+package com.invexdijin.init.contact.info.domain.adapter;
 
 import com.invexdijin.init.contact.info.domain.model.ResponseTx;
-import com.invexdijin.init.contact.info.infrastructure.exceptions.AttemptsLimitException;
-import com.invexdijin.init.contact.info.infrastructure.exceptions.NotFoundException;
 import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

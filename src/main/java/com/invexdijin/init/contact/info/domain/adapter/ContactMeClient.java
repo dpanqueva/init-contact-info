@@ -1,4 +1,4 @@
-package com.invexdijin.init.contact.info.domain.client;
+package com.invexdijin.init.contact.info.domain.adapter;
 
 import com.invexdijin.init.contact.info.domain.model.ResponseTx;
 import com.invexdijin.init.contact.info.infrastructure.model.ContactDto;
