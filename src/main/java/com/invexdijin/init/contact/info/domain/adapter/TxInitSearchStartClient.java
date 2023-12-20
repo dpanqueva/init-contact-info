@@ -1,7 +1,8 @@
 package com.invexdijin.init.contact.info.domain.adapter;
 
-import com.invexdijin.init.contact.info.domain.model.ResponseTx;
-import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.out.RsTriedSearchDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,14 +22,14 @@ public class TxInitSearchStartClient {
     private String url;
 
 
-    public ResponseTx searchStart(TriedSearchDto request) {
+    public RsTriedSearchDto searchStart(InitSearchDto request) {
 
             String strUrl = "/init-search-people";
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
 
-            HttpEntity<TriedSearchDto> entity = new HttpEntity<>(request, headers);
-            ResponseEntity<ResponseTx> response = client.exchange(url.concat(strUrl), HttpMethod.POST, entity,
+            HttpEntity<InitSearchDto> entity = new HttpEntity<>(request, headers);
+            ResponseEntity<RsTriedSearchDto> response = client.exchange(url.concat(strUrl), HttpMethod.POST, entity,
                     new ParameterizedTypeReference<>() {
                     });
             return response.getBody();

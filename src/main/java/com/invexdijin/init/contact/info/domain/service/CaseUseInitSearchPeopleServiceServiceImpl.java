@@ -2,8 +2,9 @@ package com.invexdijin.init.contact.info.domain.service;
 
 import com.invexdijin.init.contact.info.application.ICaseUseInitSearchPeopleService;
 import com.invexdijin.init.contact.info.domain.adapter.TxInitSearchStartClient;
-import com.invexdijin.init.contact.info.domain.model.ResponseTx;
-import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.out.RsTriedSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ public class CaseUseInitSearchPeopleServiceServiceImpl implements ICaseUseInitSe
     private TxInitSearchStartClient client;
 
     @Override
-    public ResponseTx searchStart(TriedSearchDto request) {
+    public RsTriedSearchDto searchStart(InitSearchDto request) {
         return client.searchStart(request);
     }
 }

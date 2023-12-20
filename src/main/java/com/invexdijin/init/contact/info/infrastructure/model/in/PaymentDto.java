@@ -1,5 +1,6 @@
-package com.invexdijin.init.contact.info.infrastructure.model;
+package com.invexdijin.init.contact.info.infrastructure.model.in;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentDto {
 
     private Long id;

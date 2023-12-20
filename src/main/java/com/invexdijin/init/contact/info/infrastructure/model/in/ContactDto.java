@@ -1,5 +1,6 @@
-package com.invexdijin.init.contact.info.infrastructure.model;
+package com.invexdijin.init.contact.info.infrastructure.model.in;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,7 @@ import java.math.BigInteger;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ContactDto {
 
     @NotNull(message = "contact-name-error-message")
@@ -32,7 +34,6 @@ public class ContactDto {
     @NotBlank(message = "contact-number-message")
     @Pattern(regexp = "\\d+",message = "contact-number-message-number")
     private String contactNumber;
-
 
     @NotNull(message = "contact-message-error-message")
     @NotEmpty(message = "contact-message-error-message")

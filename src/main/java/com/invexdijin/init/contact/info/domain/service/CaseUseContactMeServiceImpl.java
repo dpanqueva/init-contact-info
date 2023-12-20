@@ -3,7 +3,7 @@ package com.invexdijin.init.contact.info.domain.service;
 import com.invexdijin.init.contact.info.application.ICaseUseContactMeService;
 import com.invexdijin.init.contact.info.domain.adapter.ContactMeClient;
 import com.invexdijin.init.contact.info.domain.model.ResponseTx;
-import com.invexdijin.init.contact.info.infrastructure.model.ContactDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.ContactDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

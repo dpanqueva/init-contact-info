@@ -1,10 +1,10 @@
 package com.invexdijin.init.contact.info.application;
 
-import com.invexdijin.init.contact.info.domain.model.ResponseTx;
-import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.out.RsTriedSearchDto;
 
 @FunctionalInterface
 public interface ICaseUseInitSearchPeopleService {
 
-    public ResponseTx searchStart(TriedSearchDto request);
+    public RsTriedSearchDto searchStart(InitSearchDto request);
 }

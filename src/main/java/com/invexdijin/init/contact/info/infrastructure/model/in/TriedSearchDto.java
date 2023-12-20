@@ -1,5 +1,6 @@
-package com.invexdijin.init.contact.info.infrastructure.model;
+package com.invexdijin.init.contact.info.infrastructure.model.in;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import java.math.BigInteger;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TriedSearchDto {
 
 
@@ -39,9 +41,4 @@ public class TriedSearchDto {
     @NotEmpty(message = "search-type-bad-request")
     private String searchType;
 
-    private String firstName;
-
-    private String lastName;
-
-    private String fullName;
 }

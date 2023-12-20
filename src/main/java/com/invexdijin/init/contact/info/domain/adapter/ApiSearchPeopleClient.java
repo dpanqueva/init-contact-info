@@ -1,7 +1,7 @@
 package com.invexdijin.init.contact.info.domain.adapter;
 
 import com.invexdijin.init.contact.info.domain.model.api1.Response;
-import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.TriedSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

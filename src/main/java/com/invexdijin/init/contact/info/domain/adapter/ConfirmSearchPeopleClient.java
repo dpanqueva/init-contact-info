@@ -1,7 +1,6 @@
 package com.invexdijin.init.contact.info.domain.adapter;
 
-import com.invexdijin.init.contact.info.infrastructure.model.InitSearchDto;
-import com.invexdijin.init.contact.info.infrastructure.model.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -23,7 +22,7 @@ public class ConfirmSearchPeopleClient {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<TriedSearchDto> entity = new HttpEntity<>(null, headers);
+        HttpEntity<InitSearchDto> entity = new HttpEntity<>(null, headers);
         ResponseEntity<InitSearchDto> response = client.exchange(url.concat(strUrl), HttpMethod.GET, entity,
                 new ParameterizedTypeReference<>() {
                 });

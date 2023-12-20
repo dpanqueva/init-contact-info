@@ -1,5 +1,6 @@
-package com.invexdijin.init.contact.info.infrastructure.model;
+package com.invexdijin.init.contact.info.infrastructure.model.in;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class InitSearchDto {
     private String id;
 
@@ -23,6 +25,12 @@ public class InitSearchDto {
     private String searchType;
 
     private Date searchDate;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String fullName;
 
     private PaymentDto payment;
 

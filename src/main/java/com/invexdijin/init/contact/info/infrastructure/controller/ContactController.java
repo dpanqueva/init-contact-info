@@ -1,7 +1,7 @@
 package com.invexdijin.init.contact.info.infrastructure.controller;
 
 import com.invexdijin.init.contact.info.application.ContactFacade;
-import com.invexdijin.init.contact.info.infrastructure.model.ContactDto;
+import com.invexdijin.init.contact.info.infrastructure.model.in.ContactDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
