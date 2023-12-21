@@ -60,6 +60,15 @@ public class ExceptionErrorHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
+    @ExceptionHandler({PaymentIntentWithStatusException.class})
+    public ResponseEntity<Map<String, Object>> withPaymentStatus(Exception e) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("message","Reference already has a payment status. Try again");
+        response.put("code", "with-payment-reference-status");
+        log.error("Unexpected error: ".concat(e.getMessage()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
     @ExceptionHandler({HttpClientErrorException.NotFound.class})
     public ResponseEntity<Map<String, Object>> notFoundedResource(Exception e){
         Map<String, Object> response = new HashMap<>();

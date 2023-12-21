@@ -1,6 +1,6 @@
 package com.invexdijin.init.contact.info.infrastructure.controller;
 
-import com.invexdijin.init.contact.info.application.ICaseUseConfirmSearchPeopleService;
+import com.invexdijin.init.contact.info.application.ICaseUseConfirmStatusPaymentService;
 import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
 import com.invexdijin.init.contact.info.infrastructure.util.UtilDataShow;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/invexdijin")
-public class ConfirmSearchController {
+public class ConfirmPayController {
 
     @Autowired
-    private ICaseUseConfirmSearchPeopleService confirmSearchPeople;
+    private ICaseUseConfirmStatusPaymentService confirmPayStatus;
 
     @Autowired
     private UtilDataShow utilDataShow;
 
-    @GetMapping("/intention-search-pay/{referenceLocator}")
-    ResponseEntity<InitSearchDto> confirmIntentionPay(@PathVariable String referenceLocator) {
+    @GetMapping("/intention-pay/{referenceLocator}")
+    ResponseEntity<InitSearchDto> confirmPayStatus(@PathVariable String referenceLocator) {
         return ResponseEntity.ok(utilDataShow
-                .showFullNameWithAsterisk(confirmSearchPeople.confirmSearchPeople(referenceLocator)));
+                .showFullNameWithAsterisk(confirmPayStatus.confirmStatusPayment(referenceLocator)));
     }
 }
