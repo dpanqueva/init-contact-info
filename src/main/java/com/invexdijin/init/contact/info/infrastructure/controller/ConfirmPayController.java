@@ -22,7 +22,6 @@ public class ConfirmPayController {
 
     @GetMapping("/intention-pay/{referenceLocator}")
     ResponseEntity<InitSearchDto> confirmPayStatus(@PathVariable String referenceLocator) {
-        return ResponseEntity.ok(utilDataShow
-                .showFullNameWithAsterisk(confirmPayStatus.confirmStatusPayment(referenceLocator)));
+        return ResponseEntity.ok(confirmPayStatus.confirmStatusPayment(referenceLocator));
     }
 }

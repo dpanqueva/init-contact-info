@@ -2,7 +2,6 @@ package com.invexdijin.init.contact.info.domain.service;
 
 import com.invexdijin.init.contact.info.application.ICaseUseConfirmSearchPeopleService;
 import com.invexdijin.init.contact.info.domain.adapter.ConfirmSearchPeopleClient;
-import com.invexdijin.init.contact.info.infrastructure.exceptions.PaymentIntentWithStatusException;
 import com.invexdijin.init.contact.info.infrastructure.exceptions.WithPaymentReferenceException;
 import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,6 @@ public class CaseUseConfirmSearchPeopleServiceServiceImpl implements ICaseUseCon
     public InitSearchDto confirmSearchPeople(String referenceLocator) {
         InitSearchDto initSearchDto = confirmSearch.confirmPeopleClient(referenceLocator);
         if (initSearchDto.getPayment() != null) {
-            if(initSearchDto.getPayment().getPaymentStatus() != null){
-                throw new PaymentIntentWithStatusException("Reference already has a payment status");
-            }
             throw new WithPaymentReferenceException("This referenceLocator has a reference payment");
         }
         return initSearchDto;
