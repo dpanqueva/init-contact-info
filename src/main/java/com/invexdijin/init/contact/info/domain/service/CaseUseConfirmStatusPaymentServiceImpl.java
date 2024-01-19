@@ -16,7 +16,7 @@ public class CaseUseConfirmStatusPaymentServiceImpl implements ICaseUseConfirmSt
     @Override
     public InitSearchDto confirmStatusPayment(String referenceLocator) {
         InitSearchDto initSearchDto = confirmSearch.confirmPeopleClient(referenceLocator);
-        if (initSearchDto.getPayment() != null) {
+        if (initSearchDto.getPayment() == null) {
             throw new WithPaymentReferenceException("This referenceLocator has a reference payment");
         }
         return initSearchDto;

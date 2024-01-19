@@ -25,7 +25,7 @@ public class SendEmailContact {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<ContactDto> entity = new HttpEntity<>(request, headers);
-        client.exchange(url.concat(url), HttpMethod.POST, entity,
+        client.exchange(url, HttpMethod.POST, entity,
                 new ParameterizedTypeReference<>() {
                 });
 
