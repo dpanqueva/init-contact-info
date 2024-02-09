@@ -1,8 +1,11 @@
 package com.invexdijin.init.contact.info.domain.adapter;
 
+import com.invexdijin.init.contact.info.application.ICaseUseTokenRenew;
 import com.invexdijin.init.contact.info.domain.model.api1.Response;
 import com.invexdijin.init.contact.info.infrastructure.model.in.TriedSearchDto;
+import com.invexdijin.init.contact.info.infrastructure.model.out.TokenRenew;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -13,11 +16,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @Component
+@Slf4j
 public class ApiSearchPeopleClient {
 
 
     @Autowired
     private RestTemplate client;
+
+    @Autowired
+    private ICaseUseTokenRenew iCaseUseTokenRenew;
 
     @Value("${client.api1.search.people.url}")
     private String url;
@@ -27,6 +34,14 @@ public class ApiSearchPeopleClient {
 
 @SneakyThrows
     public Response consultSearchPeople(TriedSearchDto request) {
+
+        try{
+            TokenRenew tokenRenew = iCaseUseTokenRenew.renewToken(token);
+            token = "Bearer "+tokenRenew.getAccessToken();
+        }catch (Exception ex){
+            log.error("Failed request to token renew service");
+        }
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("Authorization", "Bearer ".concat(token));
