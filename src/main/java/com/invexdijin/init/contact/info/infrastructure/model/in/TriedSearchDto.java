@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -28,17 +26,20 @@ public class TriedSearchDto {
     @NotEmpty(message = "search-message-error-document-number")
     @Size(min = 5, message = "search-message-error-minlengh-document")
     @Size(max = 10, message = "search-message-error-maxlengh-document")
+    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "search-message-error-document-number")
     private String documentNumber;
     @NotNull(message = "search-message-error-contact-number")
     @NotBlank(message = "search-message-error-contact-number")
     @NotEmpty(message = "search-message-error-contact-number")
-    @Pattern(regexp = "\\d+", message = "search-message-error-just-number-contact-number")
-    @Size(max = 10, message = "search-message-error-maxlengh-contact-number")
-    @Size(min = 7, message = "search-message-error-minlengh-contact-number")
+    @Pattern(regexp = "^([\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}|^\\d{10})$", message = "search-message-error-just-number-contact-number")
     private String cellphone;
     @NotNull(message = "search-type-bad-request")
     @NotBlank(message = "search-type-bad-request")
     @NotEmpty(message = "search-type-bad-request")
     private String searchType;
+    @NotNull(message = "search-terms-conditions-bad-request")
+    @NotBlank(message = "search-terms-conditions-bad-request")
+    @NotEmpty(message = "search-terms-conditions-bad-request")
+    private boolean termsConditions;
 
 }
