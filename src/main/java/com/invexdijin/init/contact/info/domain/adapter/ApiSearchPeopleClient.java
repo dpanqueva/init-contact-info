@@ -37,7 +37,7 @@ public class ApiSearchPeopleClient {
 
         try{
             TokenRenew tokenRenew = iCaseUseTokenRenew.renewToken(token);
-            token = "Bearer "+tokenRenew.getAccessToken();
+            token = tokenRenew.getAccessToken();
         }catch (Exception ex){
             log.error("Failed request to token renew service");
         }

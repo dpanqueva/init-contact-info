@@ -38,8 +38,6 @@ public class TriedSearchDto {
     @NotEmpty(message = "search-type-bad-request")
     private String searchType;
     @NotNull(message = "search-terms-conditions-bad-request")
-    @NotBlank(message = "search-terms-conditions-bad-request")
-    @NotEmpty(message = "search-terms-conditions-bad-request")
-    private boolean termsConditions;
+    private Boolean termsConditions;
 
 }
