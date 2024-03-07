@@ -16,7 +16,7 @@ public class ContactFacade {
 
     public ResponseTx facadeContactMe(ContactDto request) {
 
-        //contactService.sendEmailContact(request);
+        contactService.sendEmailContact(request);
 
         return contactMeService.saveContactMe(request);
 
