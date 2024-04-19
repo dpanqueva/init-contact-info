@@ -89,7 +89,11 @@ public class ExceptionErrorHandler {
     public ResponseEntity<Map<String, Object>> badRequestException(Exception e) {
         Map<String, Object> response = new HashMap<>();
         response.put("message", e.getMessage());
-        response.put("code", "attempts-limit-exception");
+        if(e.getMessage().contains("attempts-limit-exception")){
+            response.put("code", "attempts-limit-exception");
+        }else{
+            response.put("code", "sweet-alert-not-found");
+        }
         log.error("BadRequest: ".concat(e.getMessage()));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }

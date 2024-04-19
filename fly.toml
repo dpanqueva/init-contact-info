@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for init-contact-info-v1 on 2024-02-05T09:14:53-05:00
+# fly.toml app configuration file generated for init-contact-info-v1 on 2024-03-13T11:01:37-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "init-contact-info-v1"
-primary_region = "bog"
+app = 'init-contact-info-v1'
+primary_region = 'bog'
 
 [build]
 
@@ -13,9 +13,9 @@ primary_region = "bog"
   auto_stop_machines = false
   auto_start_machines = false
   min_machines_running = 1
-  processes = ["app"]
+  processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  memory = '512mb'
+  cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 512
