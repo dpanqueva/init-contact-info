@@ -6,10 +6,14 @@ import com.invexdijin.init.contact.info.infrastructure.exceptions.PaymentIntentW
 import com.invexdijin.init.contact.info.infrastructure.exceptions.WithPaymentReferenceException;
 import com.invexdijin.init.contact.info.infrastructure.model.in.InitSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CaseUseConfirmStatusPaymentServiceImpl implements ICaseUseConfirmStatusPaymentService {
+
+    @Value("${payment.status}")
+    private String paymentStatus;
 
     @Autowired
     private ConfirmSearchPeopleClient confirmSearch;
@@ -21,7 +25,7 @@ public class CaseUseConfirmStatusPaymentServiceImpl implements ICaseUseConfirmSt
             throw new WithPaymentReferenceException("This referenceLocator has a reference payment");
         }
 
-        if(initSearchDto.getPayment().getPaymentStatus() != null){
+        if(!initSearchDto.getPayment().getPaymentStatus().equalsIgnoreCase(paymentStatus)){
             throw new PaymentIntentWithStatusException("The reference already has payment status. Please try a new search.");
         }
 
